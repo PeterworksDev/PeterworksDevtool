@@ -3,12 +3,12 @@
 
 ### DotnetCore ###
 # .NET Core build folders
-/PeterworksDevTool/bin/
-/PeterworksDevTool/obj/
+PeterworksDevTool/bin/*
+PeterworksDevTool/obj/*
 
 # Common node modules locations
-/PeterworksDevTool/node_modules/
-/PeterworksDevTool/wwwroot/node_modules/
+PeterworksDevTool/node_modules/*
+PeterworksDevTool/wwwroot/node_modules/*
 
 # End of https://www.toptal.com/developers/gitignore/api/dotnetcore
 .DS_Store
