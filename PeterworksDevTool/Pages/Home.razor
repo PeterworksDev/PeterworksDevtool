@@ -1,7 +1,18 @@
 ﻿@page "/"
+@inject IConfiguration Configuration
+
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1 class="title">Hello, world!</h1>
 
 Welcome to your new app.
+
+<h1>Hello @Configuration["PeterworksDevToolPass"]!</h1>
+
+@code{
+
+   // string appConfig = new AppConfig().AppConfigInit();
+
+
+}

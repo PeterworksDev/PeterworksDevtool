@@ -1,4 +1,23 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿<nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item">
+            <img src="asset/logo.png" alt="site logo" style="max-height : 70px" class="py-2 px-2"/>
+        </a>
+    </div>
+    <div class="navbar-menu" id="nav-links">
+        <div class="navbar-start">
+            <NavLink class="navbar-item" href="" Match="NavLinkMatch.All">Home</NavLink>
+            <NavLink class="navbar-item" href="http_encode_decode">http_encode_decode</NavLink>
+        </div>
+        <div class="navbar-end">
+            <a class="navbar-item">About</a>
+        </div>
+    </div>
+</nav>
+
+
+
+@* <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">PeterworksDevTool</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -20,7 +39,7 @@
             </NavLink>
         </div>
     </nav>
-</div>
+</div> *@
 
 @code {
     private bool collapseNavMenu = true;
