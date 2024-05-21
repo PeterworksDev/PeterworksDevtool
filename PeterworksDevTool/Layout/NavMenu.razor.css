@@ -11,6 +11,10 @@
     font-size: 1.1rem;
 }
 
+.navbar {
+    justify-content: initial; /* or any other value you need */
+  }
+
 .bi {
     display: inline-block;
     position: relative;
@@ -54,6 +58,8 @@
         align-items: center;
         line-height: 3rem;
     }
+
+
 
 .nav-item ::deep a.active {
     background-color: rgba(255,255,255,0.37);
