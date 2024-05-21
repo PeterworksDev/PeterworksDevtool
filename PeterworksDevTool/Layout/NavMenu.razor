@@ -1,13 +1,13 @@
 ﻿<nav class="navbar">
     <div class="navbar-brand">
         <a class="navbar-item">
-            <img src="asset/logo.png" alt="site logo" style="max-height : 70px" class="py-2 px-2"/>
+            <h1 class="title is-3">Peterworks Dev Tool</h1>
         </a>
     </div>
     <div class="navbar-menu" id="nav-links">
         <div class="navbar-start">
             <NavLink class="navbar-item" href="" Match="NavLinkMatch.All">Home</NavLink>
-            <NavLink class="navbar-item" href="http_encode_decode">http_encode_decode</NavLink>
+            <NavLink class="navbar-item" href="http_encode_decode">HTTP Encode & Decode</NavLink>
         </div>
         <div class="navbar-end">
             <a class="navbar-item">About</a>
@@ -15,31 +15,6 @@
     </div>
 </nav>
 
-
-
-@* <div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">PeterworksDevTool</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</div>
-
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="http_encode_decode">
-                <span class="bi bi-cpu" aria-hidden="true"></span> Http Encode Decode
-            </NavLink>
-        </div>
-    </nav>
-</div> *@
 
 @code {
     private bool collapseNavMenu = true;

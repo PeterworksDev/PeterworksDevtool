@@ -1,20 +1,19 @@
 @page "/http_encode_decode"
 
 <PageTitle>Http Encode / Decode </PageTitle>
+<div>
+    <h1 class="title">Http Encdoe / Decode</h1>
+    <h2 class="subtitle">Please enter the Value that you wish to Http Encode or Decode</h2>
+    <input class="textarea" placeholder="Add Value" @bind-value="inputText"/>
+    <br>
+    <button class="button is-primary is-dark" @onclick="httpEncodeText">Http Encode</button>
+    <button class="button is-primary is-dark" @onclick="httpDecodeText">Http Decode</button>
+    <br>
+    <br>
+    <h3 class="title is-3">Result</h3>
+    <input class="textarea" placeholder="Result Value" @bind-value="outputText"/>
+</div>
 
-<h1 class="title">Http Encdoe / Decode</h1>
-<h2 class="subtitle">Please enter the Value that you wish to Http Encode or Decode</h2>
-<br>
-<input @bind-value="inputText"/>
-<br>
-<br>
-<button @onclick="httpEncodeText">Http Encode</button>
-<button @onclick="httpDecodeText">Http Decode</button>
-<br>
-<br>
-<h3>Result</h3>
-<br>
-<p>@outputText</p>
 
 
 @code{
