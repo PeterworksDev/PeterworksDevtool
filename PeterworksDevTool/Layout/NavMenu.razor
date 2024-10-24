@@ -10,7 +10,10 @@
             <NavLink class="navbar-item" href="http_encode_decode">HTTP Encode & Decode</NavLink>
         </div>
         <div class="navbar-end">
-            <a class="navbar-item">About</a>
+            <label class="switch">
+                <input type="checkbox" @bind = "IsSwitchOn">
+                <span class="slider round"></span>
+            </label>
         </div>
     </div>
 </nav>
@@ -18,11 +21,17 @@
 
 @code {
     private bool collapseNavMenu = true;
+    private bool IsSwitchOn = false;
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+    private void SwitchChanged(ChangeEventArgs e)
+    {
+        IsSwitchOn = (bool)e.Value;
     }
 }

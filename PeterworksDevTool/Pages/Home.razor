@@ -1,14 +1,17 @@
 ﻿@page "/"
 @inject IConfiguration Configuration
 
-
 <PageTitle>Home</PageTitle>
-<div>
-   <h1 class="title">Hello, world!</h1>
+<div class="columns is-centered">
 
-   Welcome to your new app.
+   <div class="column is-6 is-offset-3">
+      <h1 class="title">Hello, world!</h1>
 
-   <h1>Hello @Configuration["PeterworksDevToolPass"]!</h1>
+      <br>
+
+      <p>Welcome to your new app.</p>
+
+   </div>
 
 </div>
 @code{

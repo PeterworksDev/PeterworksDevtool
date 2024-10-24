@@ -55,7 +55,7 @@
             },
             "Microsoft.Extensions.Configuration.AzureAppConfiguration": {
               "target": "Package",
-              "version": "[7.1.0, )"
+              "version": "[7.2.0, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
