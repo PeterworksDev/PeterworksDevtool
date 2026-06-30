@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/Users/peterpark/Documents/PersonalProject/PeterworksDevtool/PeterworksDevTool/PeterworksDevTool.csproj": {}
+    "D:\\PeterProject\\PeterworksDevtool\\PeterworksDevTool\\PeterworksDevTool.csproj": {}
   },
   "projects": {
-    "/Users/peterpark/Documents/PersonalProject/PeterworksDevtool/PeterworksDevTool/PeterworksDevTool.csproj": {
+    "D:\\PeterProject\\PeterworksDevtool\\PeterworksDevTool\\PeterworksDevTool.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/peterpark/Documents/PersonalProject/PeterworksDevtool/PeterworksDevTool/PeterworksDevTool.csproj",
+        "projectUniqueName": "D:\\PeterProject\\PeterworksDevtool\\PeterworksDevTool\\PeterworksDevTool.csproj",
         "projectName": "PeterworksDevTool",
-        "projectPath": "/Users/peterpark/Documents/PersonalProject/PeterworksDevtool/PeterworksDevTool/PeterworksDevTool.csproj",
-        "packagesPath": "/Users/peterpark/.nuget/packages/",
-        "outputPath": "/Users/peterpark/Documents/PersonalProject/PeterworksDevtool/PeterworksDevTool/obj/",
+        "projectPath": "D:\\PeterProject\\PeterworksDevtool\\PeterworksDevTool\\PeterworksDevTool.csproj",
+        "packagesPath": "C:\\Users\\jinuk\\.nuget\\packages\\",
+        "outputPath": "D:\\PeterProject\\PeterworksDevtool\\PeterworksDevTool\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/peterpark/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\jinuk\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,7 +37,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -55,18 +55,18 @@
             },
             "Microsoft.Extensions.Configuration.AzureAppConfiguration": {
               "target": "Package",
-              "version": "[7.2.0, )"
+              "version": "[7.1.0, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.3, )",
+              "version": "[8.0.18, )",
               "autoReferenced": true
             },
             "Microsoft.NET.Sdk.WebAssembly.Pack": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.4, )",
+              "version": "[9.0.7, )",
               "autoReferenced": true
             }
           },
@@ -83,8 +83,20 @@
           "warn": true,
           "downloadDependencies": [
             {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[8.0.4, 8.0.4]"
+              "version": "[8.0.18, 8.0.18]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.18, 8.0.18]"
             }
           ],
           "frameworkReferences": {
@@ -92,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
