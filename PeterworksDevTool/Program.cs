@@ -8,9 +8,11 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-// builder.Configuration.AddAzureAppConfiguration(options =>
+// builder.ConfigureAppConfiguration((hostingContext, config) =>
 // {
-//     //options.Connect("Endpoint=https://peterworksdevtoolvalue.azconfig.io;Id=CAfQ;Secret=/p3hQJSJCvWQVvwZ+ezTO7TV6rTmj2/6SDmVK6Jyk0A=");
+//     config.AddJsonFile("appsettings.json", optional: true);
+//     config.AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", optional: true);
+//     config.AddEnvironmentVariables();
 // });
 
 await builder.Build().RunAsync();
