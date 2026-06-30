@@ -1,15 +1,13 @@
-﻿@inherits LayoutComponentBase
-<div>
-    <div>
-        <NavMenu />
-    </div>
+@inherits LayoutComponentBase
 
-    <main style="min-height: 100vh;">
-        <article class="px-4 py-2 ">
-            @Body
-        </article>
+<div class="m3-layout-wrapper">
+    <NavMenu />
+
+    <main class="m3-main-container">
+        @Body
     </main>
-    <footer class="footer">
-        <Footer/>
+
+    <footer class="m3-footer">
+        <Footer />
     </footer>
 </div>

@@ -1,22 +1,122 @@
-﻿@page "/"
+@page "/"
 @inject IConfiguration Configuration
 
-<PageTitle>Home</PageTitle>
-<div class="columns is-centered">
+<PageTitle>Home - Peterworks Dev Tool</PageTitle>
 
-   <div class="column is-6 is-offset-3">
-      <h1 class="title">Hello, world!</h1>
+<div style="display: flex; flex-direction: column; gap: 3.5rem;">
+    <!-- Hero Section -->
+    <section style="text-align: center; padding: 3rem 1rem 1rem 1rem; display: flex; flex-direction: column; gap: 1.25rem; align-items: center;">
+        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); padding: 0.5rem 1rem; border-radius: var(--shape-corner-full); font-weight: 600;" class="m3-label-large">
+            <span class="material-symbols-rounded" style="font-size: 1.1rem; font-variation-settings: 'FILL' 1;">auto_awesome</span>
+            <span>Welcome to Peter's Personal Workspace</span>
+        </div>
+        
+        <h1 class="m3-display" style="max-width: 800px; margin: 0 auto; background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-tertiary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Peterworks Dev Tool
+        </h1>
+        
+        <p class="m3-body-medium" style="max-width: 600px; margin: 0 auto; color: var(--md-sys-color-on-surface-variant); font-size: 1.15rem; line-height: 1.75rem;">
+            A premium, feature-rich suite of developers' utilities designed to streamline your daily engineering workflows. Fast, beautiful, and completely client-side.
+        </p>
+    </section>
 
-      <br>
+    <!-- Grid of Feature Cards -->
+    <section>
+        <h2 class="m3-title-large" style="margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; justify-content: center;">
+            <span class="material-symbols-rounded" style="color: var(--md-sys-color-primary)">grid_view</span>
+            <span>Explore Developer Toolboxes</span>
+        </h2>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 1.75rem; justify-content: center; max-width: 1100px; margin: 0 auto; width: 100%;">
+            <!-- Active Module: HTTP Encode & Decode -->
+            <a href="http_encode_decode" class="m3-card" style="display: flex; flex-direction: column; gap: 1.25rem; justify-content: space-between; text-decoration: none; color: inherit; border-color: var(--md-sys-color-primary); width: 310px; flex-grow: 1; max-width: 340px;">
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span class="material-symbols-rounded" style="font-size: 2.25rem; color: var(--md-sys-color-primary); background: var(--md-sys-color-primary-container); padding: 0.75rem; border-radius: var(--shape-corner-large);">code</span>
+                        <span class="m3-label-large" style="background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); padding: 0.25rem 0.75rem; border-radius: var(--shape-corner-full);">Active</span>
+                    </div>
+                    <h3 class="m3-title-medium">HTTP URL Encoder</h3>
+                    <p class="m3-body-medium" style="color: var(--md-sys-color-on-surface-variant); font-size: 0.95rem;">
+                        Quickly URL encode or decode query parameters, path variables, and request payloads safely within the browser.
+                    </p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--md-sys-color-primary);" class="m3-label-large">
+                    <span>Open Utility</span>
+                    <span class="material-symbols-rounded">arrow_forward</span>
+                </div>
+            </a>
 
-      <p>Welcome to your new app.</p>
+            <!-- Mock Module 1: API Tester -->
+            <div class="m3-card" style="display: flex; flex-direction: column; gap: 1.25rem; opacity: 0.85; width: 310px; flex-grow: 1; max-width: 340px;">
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span class="material-symbols-rounded" style="font-size: 2.25rem; color: var(--md-sys-color-secondary); background: var(--md-sys-color-secondary-container); padding: 0.75rem; border-radius: var(--shape-corner-large);">api</span>
+                        <span class="m3-label-large" style="background: var(--md-sys-color-surface-variant); color: var(--md-sys-color-on-surface-variant); padding: 0.25rem 0.75rem; border-radius: var(--shape-corner-full);">Soon</span>
+                    </div>
+                    <h3 class="m3-title-medium">API Tester</h3>
+                    <p class="m3-body-medium" style="color: var(--md-sys-color-on-surface-variant); font-size: 0.95rem;">
+                        Test and debug RESTful or WebSocket APIs with customized headers, payloads, and immediate response logs.
+                    </p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500; color: var(--md-sys-color-outline);" class="m3-label-large">
+                    <span>Upcoming Utility</span>
+                </div>
+            </div>
 
-   </div>
+            <!-- Mock Module 2: JSON Formatter -->
+            <div class="m3-card" style="display: flex; flex-direction: column; gap: 1.25rem; opacity: 0.85; width: 310px; flex-grow: 1; max-width: 340px;">
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span class="material-symbols-rounded" style="font-size: 2.25rem; color: var(--md-sys-color-secondary); background: var(--md-sys-color-secondary-container); padding: 0.75rem; border-radius: var(--shape-corner-large);">data_object</span>
+                        <span class="m3-label-large" style="background: var(--md-sys-color-surface-variant); color: var(--md-sys-color-on-surface-variant); padding: 0.25rem 0.75rem; border-radius: var(--shape-corner-full);">Soon</span>
+                    </div>
+                    <h3 class="m3-title-medium">JSON Formatter</h3>
+                    <p class="m3-body-medium" style="color: var(--md-sys-color-on-surface-variant); font-size: 0.95rem;">
+                        Format, minify, and validate JSON strings with tree syntax highlighting and collapsible node interfaces.
+                    </p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500; color: var(--md-sys-color-outline);" class="m3-label-large">
+                    <span>Upcoming Utility</span>
+                </div>
+            </div>
 
+            <!-- Mock Module 3: Base64 Converter -->
+            <div class="m3-card" style="display: flex; flex-direction: column; gap: 1.25rem; opacity: 0.85; width: 310px; flex-grow: 1; max-width: 340px;">
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span class="material-symbols-rounded" style="font-size: 2.25rem; color: var(--md-sys-color-secondary); background: var(--md-sys-color-secondary-container); padding: 0.75rem; border-radius: var(--shape-corner-large);">swap_horiz</span>
+                        <span class="m3-label-large" style="background: var(--md-sys-color-surface-variant); color: var(--md-sys-color-on-surface-variant); padding: 0.25rem 0.75rem; border-radius: var(--shape-corner-full);">Soon</span>
+                    </div>
+                    <h3 class="m3-title-medium">Base64 Encoder</h3>
+                    <p class="m3-body-medium" style="color: var(--md-sys-color-on-surface-variant); font-size: 0.95rem;">
+                        Convert raw text or files to Base64 data URLs, and easily decode them back to raw binaries.
+                    </p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500; color: var(--md-sys-color-outline);" class="m3-label-large">
+                    <span>Upcoming Utility</span>
+                </div>
+            </div>
+
+            <!-- Mock Module 4: Regex Tester -->
+            <div class="m3-card" style="display: flex; flex-direction: column; gap: 1.25rem; opacity: 0.85; width: 310px; flex-grow: 1; max-width: 340px;">
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span class="material-symbols-rounded" style="font-size: 2.25rem; color: var(--md-sys-color-secondary); background: var(--md-sys-color-secondary-container); padding: 0.75rem; border-radius: var(--shape-corner-large);">find_replace</span>
+                        <span class="m3-label-large" style="background: var(--md-sys-color-surface-variant); color: var(--md-sys-color-on-surface-variant); padding: 0.25rem 0.75rem; border-radius: var(--shape-corner-full);">Soon</span>
+                    </div>
+                    <h3 class="m3-title-medium">Regex Tester</h3>
+                    <p class="m3-body-medium" style="color: var(--md-sys-color-on-surface-variant); font-size: 0.95rem;">
+                        Write and validate regular expressions against target test text with color-coded match breakdowns.
+                    </p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500; color: var(--md-sys-color-outline);" class="m3-label-large">
+                    <span>Upcoming Utility</span>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
+
 @code{
-
-   // string appConfig = new AppConfig().AppConfigInit();
-
-
+    // string appConfig = new AppConfig().AppConfigInit();
 }

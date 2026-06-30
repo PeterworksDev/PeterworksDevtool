@@ -1,39 +1,82 @@
 @page "/http_encode_decode"
+@using System.Web
 
-<PageTitle>Http Encode / Decode </PageTitle>
-<div>
-    <h1 class="title">Http Encdoe / Decode</h1>
-    <h2 class="subtitle">Please enter the Value that you wish to Http Encode or Decode</h2>
-    <textarea class="textarea" placeholder="Add Value" @bind="inputText"/>
-    <br>
-    <button class="button is-primary is-dark" @onclick="httpEncodeText">Http Encode</button>
-    <button class="button is-primary is-dark" @onclick="httpDecodeText">Http Decode</button>
-    <br>
-    <br>
-    <h3 class="title is-3">Result</h3>
-    <textarea class="textarea" placeholder="Result Value" @bind="outputText"/>
+<PageTitle>HTTP URL Encoder & Decoder - Peterworks Dev Tool</PageTitle>
+
+<div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
+    <!-- Page Header -->
+    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        <h1 class="m3-display" style="font-size: 2.25rem; display: flex; align-items: center; gap: 0.75rem;">
+            <span class="material-symbols-rounded" style="color: var(--md-sys-color-primary); font-size: 2.5rem;">code</span>
+            <span>HTTP URL Encode & Decode</span>
+        </h1>
+        <p class="m3-body-medium" style="color: var(--md-sys-color-on-surface-variant);">
+            Easily URL encode or decode values to make them safe for web transmission, query strings, and API payloads.
+        </p>
+    </div>
+
+    <!-- Main Container Card -->
+    <div class="m3-card" style="display: flex; flex-direction: column; gap: 1.75rem;">
+        
+        <!-- Input Section -->
+        <div class="m3-textfield-container">
+            <label class="m3-label-large" style="color: var(--md-sys-color-primary); display: flex; align-items: center; gap: 0.5rem;">
+                <span class="material-symbols-rounded" style="font-size: 1.2rem;">edit_note</span>
+                <span>Source Value</span>
+            </label>
+            <textarea class="m3-textarea" placeholder="Type or paste the value you wish to process..." @bind="inputText" />
+        </div>
+
+        <!-- Action Buttons -->
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button class="m3-btn m3-btn-primary" @onclick="httpEncodeText">
+                <span class="material-symbols-rounded">lock</span>
+                <span>URL Encode</span>
+            </button>
+            <button class="m3-btn m3-btn-secondary" @onclick="httpDecodeText">
+                <span class="material-symbols-rounded">lock_open</span>
+                <span>URL Decode</span>
+            </button>
+            @if (!string.IsNullOrEmpty(inputText) || !string.IsNullOrEmpty(outputText))
+            {
+                <button class="m3-btn m3-btn-tonal" @onclick="ClearFields">
+                    <span class="material-symbols-rounded">clear_all</span>
+                    <span>Clear All</span>
+                </button>
+            }
+        </div>
+
+        <!-- Result Section -->
+        <div class="m3-textfield-container">
+            <label class="m3-label-large" style="color: var(--md-sys-color-tertiary); display: flex; align-items: center; gap: 0.5rem;">
+                <span class="material-symbols-rounded" style="font-size: 1.2rem;">output</span>
+                <span>Processed Result</span>
+            </label>
+            <textarea class="m3-textarea" placeholder="Processed output will appear here..." @bind="outputText" readonly style="background-color: rgba(0, 0, 0, 0.05); cursor: default;" />
+        </div>
+
+    </div>
 </div>
 
+@code {
+    private string? inputText { get; set; }
+    private string? outputText { get; set; }
 
-
-@code{
-
-    string inputText {get; set;}
-    string outputText {get; set;}
-
-
-    private void httpEncodeText() {
-
-        string encodeString = HttpUtility.UrlEncode(inputText);
-        outputText = encodeString;
-
+    private void httpEncodeText()
+    {
+        if (string.IsNullOrEmpty(inputText)) return;
+        outputText = HttpUtility.UrlEncode(inputText);
     }
 
-    private void httpDecodeText() {
-
-        string decodeString = HttpUtility.UrlDecode(inputText);
-        outputText = decodeString;
-
+    private void httpDecodeText()
+    {
+        if (string.IsNullOrEmpty(inputText)) return;
+        outputText = HttpUtility.UrlDecode(inputText);
     }
 
+    private void ClearFields()
+    {
+        inputText = string.Empty;
+        outputText = string.Empty;
+    }
 }

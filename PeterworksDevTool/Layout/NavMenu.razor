@@ -1,37 +1,103 @@
-﻿<nav class="navbar">
-    <div class="navbar-brand">
-        <a class="navbar-item">
-            <h1 class="title is-3">Peterworks Dev Tool</h1>
-        </a>
-    </div>
-    <div class="navbar-menu" id="nav-links">
-        <div class="navbar-start">
-            <NavLink class="navbar-item" href="" Match="NavLinkMatch.All">Home</NavLink>
-            <NavLink class="navbar-item" href="http_encode_decode">HTTP Encode & Decode</NavLink>
-        </div>
-        <div class="navbar-end">
-            <label class="switch">
-                <input type="checkbox" @bind = "IsSwitchOn">
-                <span class="slider round"></span>
-            </label>
-        </div>
-    </div>
-</nav>
+@inject IJSRuntime JSRuntime
 
+<header class="m3-top-bar">
+    <div class="m3-top-bar-container">
+        <!-- Logo -->
+        <a href="" class="m3-logo">
+            <span class="material-symbols-rounded">terminal</span>
+            <span style="line-height: 1.15;">Peterworks<br />Dev Tool</span>
+        </a>
+
+        <!-- Hamburger Button for Mobile -->
+        <button class="m3-hamburger" @onclick="ToggleMobileMenu" aria-label="Toggle menu">
+            <span class="material-symbols-rounded">
+                @(isMobileMenuOpen ? "close" : "menu")
+            </span>
+        </button>
+
+        <!-- Navigation Menu -->
+        <nav class="m3-nav-menu @(isMobileMenuOpen ? "is-mobile-open" : "")">
+            <NavLink class="m3-nav-link" href="" Match="NavLinkMatch.All" @onclick="CloseMobileMenu">
+                <span class="material-symbols-rounded">home</span>
+                <span>Home</span>
+            </NavLink>
+            <NavLink class="m3-nav-link" href="http_encode_decode" @onclick="CloseMobileMenu">
+                <span class="material-symbols-rounded">code</span>
+                <span>HTTP Encode & Decode</span>
+            </NavLink>
+            
+            <!-- Future Coming Soon Modules -->
+            <div class="m3-nav-link" style="opacity: 0.45; cursor: not-allowed;" title="Coming Soon">
+                <span class="material-symbols-rounded">api</span>
+                <span>API Tester</span>
+            </div>
+            <div class="m3-nav-link" style="opacity: 0.45; cursor: not-allowed;" title="Coming Soon">
+                <span class="material-symbols-rounded">data_object</span>
+                <span>JSON Formatter</span>
+            </div>
+            <div class="m3-nav-link" style="opacity: 0.45; cursor: not-allowed;" title="Coming Soon">
+                <span class="material-symbols-rounded">swap_horiz</span>
+                <span>Base64 Converter</span>
+            </div>
+            <div class="m3-nav-link" style="opacity: 0.45; cursor: not-allowed;" title="Coming Soon">
+                <span class="material-symbols-rounded">find_replace</span>
+                <span>Regex Tester</span>
+            </div>
+
+            <!-- Dark Mode Switch Container -->
+            <div class="m3-switch-container" style="margin-left: 0.5rem;">
+                <span class="material-symbols-rounded" style="color: var(--md-sys-color-outline); font-size: 1.35rem;">
+                    @(IsSwitchOn ? "dark_mode" : "light_mode")
+                </span>
+                <label class="m3-switch" title="Toggle Dark/Light Mode">
+                    <input type="checkbox" @bind="IsSwitchOn" @bind:after="ThemeChanged">
+                    <span class="m3-switch-slider"></span>
+                </label>
+            </div>
+        </nav>
+    </div>
+</header>
 
 @code {
-    private bool collapseNavMenu = true;
+    private bool isMobileMenuOpen = false;
     private bool IsSwitchOn = false;
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        collapseNavMenu = !collapseNavMenu;
+        if (firstRender)
+        {
+            try
+            {
+                // Read preferred theme state from JavaScript safely
+                IsSwitchOn = await JSRuntime.InvokeAsync<bool>("themeManager.getPreferredTheme");
+                StateHasChanged();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error retrieving theme preference: {ex.Message}");
+            }
+        }
     }
 
-    private void SwitchChanged(ChangeEventArgs e)
+    private void ToggleMobileMenu()
     {
-        IsSwitchOn = (bool)e.Value;
+        isMobileMenuOpen = !isMobileMenuOpen;
+    }
+
+    private void CloseMobileMenu()
+    {
+        isMobileMenuOpen = false;
+    }
+
+    private async Task ThemeChanged()
+    {
+        try
+        {
+            await JSRuntime.InvokeVoidAsync("themeManager.setTheme", IsSwitchOn);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error changing theme: {ex.Message}");
+        }
     }
 }

@@ -6,24 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PeterworksDevTool</title>
     <base href="/" />
-    <!--link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" /-->
+    
+    <script src="/js/theme.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    
     <link rel="stylesheet" href="css/app.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <link rel="icon" type="image/png" href="favicon.png" />
-    <script src="js/FirebaseConfig.js" type="module"></script>\
-        <!--link href="PeterworksDevTool.styles.css" rel="stylesheet" /-->
+    <script src="js/FirebaseConfig.js" type="module"></script>
 </head>
 
 <body>
     <div id="app">
-        <svg class="loading-progress">
-            <circle r="40%" cx="50%" cy="50%" />
-            <circle r="40%" cx="50%" cy="50%" />
-        </svg>
-        <div class="loading-progress-text"></div>
+        <div class="m3-loader-container">
+            <div class="m3-loader-content">
+                <div class="m3-loader-logo">
+                    <span class="material-symbols-rounded">terminal</span>
+                    <span>Peterworks Dev Tool</span>
+                </div>
+                <div class="m3-loader-spinner"></div>
+                <div class="m3-loader-text">Loading Workspace</div>
+            </div>
+        </div>
     </div>
+    
     <script>
-window.getUserValue()  </script>
+        window.addEventListener('load', () => {
+            if (typeof window.getUserValue === 'function') {
+                window.getUserValue();
+            }
+        });
+    </script>
 
     <div id="blazor-error-ui">
         An unhandled error has occurred.

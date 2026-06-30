@@ -35,4 +35,6 @@ function getUserValue() {
 
 }
 
+window.getUserValue = getUserValue;
+
 
